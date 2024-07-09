@@ -1,0 +1,39 @@
+{% extends "webapp/base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<body>
+    <div class="container bg-light shadow-md p-5">
+    <h4>View record</h4>
+    <h5>View your record details. </h5>
+    <hr>
+    <br>
+  
+    <div class="card pt-4" >
+      &nbsp;
+      &nbsp;
+         {{record.first_name|upper}} {{record.last_name|upper}}
+        <div class="card-body">
+          <p class="card-text">
+            <p><strong>ID: </strong>{{record.id}}</p>
+            <p><strong>Email: </strong>{{record.email}}</p>
+            <p><strong>Phone: </strong>{{record.phone}}</p>
+            <p><strong>Address: </strong>{{record.address}}</p>
+            <p><strong>City: </strong>{{record.city}}</p>
+            <p><strong>Dzongkhag: </strong>{{record.dzongkhag}}</p>
+            <p><strong>Country: </strong>{{record.country}}</p>
+          </p>
+        </div>
+      </div>
+    
+</body>
+<br>
+<a class="btn btn-success" href="{% url 'dashboard' %}"> Return &nbsp; <i class="fa-solid fa-arrow-left"></i></a>
+
+&nbsp;
+<a class="btn btn-info" href="{% url 'update-record' record.id %}">Update record &nbsp; <i class="fa-solid fa-plus"></i></a>
+&nbsp;
+<a class="btn btn-danger" href="{% url 'delete-record' record.id %}"> Delete &nbsp; <i class="fa-solid fa-minus"></i></a>
+
+{% endblock  %}
